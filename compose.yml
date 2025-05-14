@@ -1,0 +1,20 @@
+version: '3.8'
+name: hibernate_chat
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'hibernate_chat'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'admin'
+      MYSQL_ROOT_PASSWORD: 'admin'
+    ports:
+    - '3306:3306'
+    expose:
+    - '3306'
+    volumes:
+    - app-db:/var/lib/mysql
+
+volumes:
+  app-db:
